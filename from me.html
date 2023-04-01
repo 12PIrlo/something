@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>from me</title>
+    <style>
+        .popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.popup p {
+  margin: 0;
+}
+
+.popup button {
+  margin-top: 10px;
+}
+
+    </style>
+    <script>
+        const popupButton = document.getElementById('popup-button');
+const popup = document.createElement('div');
+popup.className = 'popup';
+popup.innerHTML = `
+  <p>Ini adalah pesan pop-up!</p>
+  <button id="popup-close">Tutup</button>
+`;
+document.body.appendChild(popup);
+
+popupButton.addEventListener('click', function() {
+  popup.style.display = 'block';
+});
+
+const popupCloseButton = popup.querySelector('#popup-close');
+popupCloseButton.addEventListener('click', function() {
+  popup.style.display = 'none';
+});
+
+    </script>
+</head>
+<body>
+    <button id="popup-button">Klik untuk Menampilkan Pop-up</button>
+</body>
+</html>
